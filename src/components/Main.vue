@@ -1,35 +1,17 @@
 <template>
   <main>
+    <h2>Movies</h2>
     <div class="box-cards">
-        <div class="box-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ipsum. Sit sapiente numquam, voluptates reprehenderit, quia ullam adipisci, illo possimus fugit repudiandae a explicabo ab vel vitae minus cumque incidunt!
-            
+        <div class="box-card" v-for="(film, index) in films" :key="index">
+          <Card :details="film"/> 
         </div>
-        <div class="box-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ipsum. Sit sapiente numquam, voluptates reprehenderit, quia ullam adipisci, illo possimus fugit repudiandae a explicabo ab vel vitae minus cumque incidunt!
-            
-        </div>
-        <div class="box-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ipsum. Sit sapiente numquam, voluptates reprehenderit, quia ullam adipisci, illo possimus fugit repudiandae a explicabo ab vel vitae minus cumque incidunt!
-            
-        </div>
-        <div class="box-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ipsum. Sit sapiente numquam, voluptates reprehenderit, quia ullam adipisci, illo possimus fugit repudiandae a explicabo ab vel vitae minus cumque incidunt!
-            
-        </div>
-        <div class="box-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ipsum. Sit sapiente numquam, voluptates reprehenderit, quia ullam adipisci, illo possimus fugit repudiandae a explicabo ab vel vitae minus cumque incidunt!
-            
-        </div>
-        <div class="box-card">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ipsum. Sit sapiente numquam, voluptates reprehenderit, quia ullam adipisci, illo possimus fugit repudiandae a explicabo ab vel vitae minus cumque incidunt!
-            
-        </div>
-        <Card/>
     </div>
       
   </main>
 </template>
+            
+
+        
 
 <script>
 
@@ -38,13 +20,16 @@ import Card from './Card.vue';
 
 export default {
     name: "Main",
+    props: ['films'],
     components: {
         Card
     }
     
 }
-
 </script>
+
+
+
 
 <style lang="scss" scoped>
 

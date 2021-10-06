@@ -4,7 +4,8 @@
       <h1>BOOLFLIX</h1>
     </div>
     <div class="box-search">
-      <input type="search">
+      <input type="text" v-model="searchText">
+      <button @click="$emit('searching', searchText)">Search</button>
     </div>
 
   </header>
@@ -13,7 +14,11 @@
 <script>
 export default {
     name: "Header",
-    props: ['logo']
+    data() {
+        return {
+          searchText: ""
+      }
+    }
 }
 </script>
 
