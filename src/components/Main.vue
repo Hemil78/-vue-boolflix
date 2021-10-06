@@ -6,6 +6,12 @@
           <Card :details="film"/> 
         </div>
     </div>
+    <h2>Series TV</h2>
+    <div class="box-cards">
+        <div class="box-card" v-for="(film, index) in films" :key="index">
+          <Card :details="film"/> 
+        </div>
+    </div>
       
   </main>
 </template>

@@ -36,6 +36,7 @@ export default {
         this.films = response.data.results;
       });
     }
+
   }
 }
 </script>

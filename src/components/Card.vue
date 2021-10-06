@@ -2,7 +2,7 @@
   
   <div class="box-card">
     <div class="box-img">
-      <img :src="details.backdrop_path" alt="">
+      <img :src="`https://image.tmdb.org/t/p/w342${details.backdrop_path}`" alt="">
     </div>
     <div class="box-text">
       <h3>{{details.title}}</h3>
@@ -33,8 +33,8 @@ export default {
     width: 100%;
 
     img{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     }
   }
 
