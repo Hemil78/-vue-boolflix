@@ -1,14 +1,14 @@
 <template>
   
-  <div class="box-card">
+  <div class="container-card">
     <div class="box-img">
       <img :src="`https://image.tmdb.org/t/p/w342${details.backdrop_path}`" alt="">
     </div>
     <div class="box-text">
-      <h3>{{details.title}}</h3>
-      <h4>{{details.original_title}}</h4>
-      <h5>{{details.original_language}}</h5>
-      <h5>{{details.vote_average}}</h5>
+      <span><strong>{{details.title}}</strong></span><br>
+      <span>{{details.original_title}}</span><br>
+      <span>{{details.original_language}}</span><br>
+      <span>{{details.vote_average}}</span>
     </div>
       
   </div>
@@ -26,20 +26,26 @@ export default {
 
 @import '../assets/common.scss';
 
-.box-card{
+.container-card{
   width: 100%;
 
   .box-img{
     width: 100%;
 
     img{
-    width: 200px;
-    height: 200px;
+    width: 100%;
     }
   }
+}
+.box-text{
+  width: 100%;
+  text-align: center;
+  h3{
+    display: block;
+  }
+  h4{
 
-
-  
+  }
 }
 
 </style>
