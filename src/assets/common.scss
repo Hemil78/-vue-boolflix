@@ -1,5 +1,7 @@
 /* importo il file variables */
 @import './variables.scss';
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap');
 
 /* common */
 
@@ -7,5 +9,9 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
 }
 

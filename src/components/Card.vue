@@ -2,13 +2,21 @@
   
   <div class="container-card">
     <div class="box-img">
-      <img :src="`https://image.tmdb.org/t/p/w342${details.backdrop_path}`" alt="">
+      <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
+
+      <div class="box-vote">
+        <img :src= "require(`../assets/images/${details.original_language}.png`)">
+        <span>{{details.vote_average}}</span>
+      </div>
+
     </div>
     <div class="box-text">
-      <span><strong>{{details.title}}</strong></span><br>
-      <span>{{details.original_title}}</span><br>
-      <span>{{details.original_language}}</span><br>
-      <span>{{details.vote_average}}</span>
+      
+      <div class="box-title">
+        <h4>{{details.title}}</h4>
+        <span><small>{{details.original_title}}</small></span>
+      </div>
+
     </div>
       
   </div>
@@ -30,22 +38,53 @@ export default {
   width: 100%;
 
   .box-img{
+    position: relative;
     width: 100%;
+    margin-bottom: 5px;
 
     img{
     width: 100%;
+    height: 320px;
+    }
+
+    .box-vote{
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 5px 5px 5px;
+      background: linear-gradient( rgba(0, 0, 0, 0), #000 );
+
+      img{
+      width: 25px;
+      height: 25px;
+      }
+      span{
+        color: #fff;
+      }
     }
   }
-}
-.box-text{
-  width: 100%;
-  text-align: center;
-  h3{
-    display: block;
-  }
-  h4{
+  .box-text{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    color: #fff;
 
+    .box-title{
+
+      h4{
+      margin-bottom: 0;
+      }
+
+      span{
+        color: $ColorSmallText;
+      }
+    }
+    
   }
 }
-
 </style>

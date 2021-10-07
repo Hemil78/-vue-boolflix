@@ -4,12 +4,15 @@
       <h1>BOOLFLIX</h1>
     </div>
     <div class="box-search">
-      <input type="text" v-model="searchText">
-      <button @click="$emit('searching', searchText)">Search</button>
+      <form>
+        <input type="text" v-model="searchText">
+        <button tipe="submit" @click.prevent="$emit('searching', searchText)">Search</button>
+      </form>
     </div>
 
   </header>
 </template>
+
 
 <script>
 export default {

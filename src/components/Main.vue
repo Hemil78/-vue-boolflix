@@ -37,19 +37,24 @@ export default {
 
 main{
     background-color: $ColorSmallText;
-    padding: 20px 0;
+    padding: 20px 20px;
+    background-color: $BGcolorMain;
+
+    h2{
+      color: #fff;
+      margin-bottom: 10px;
+    }
 
     .box-cards{
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        border: 1px solid red;
 
         .box-card{
-            width: calc(100% / 5 - 40px);
-            margin: 0 20px;
-            border: 1px solid green;
+            width: calc(100% / 6 - 8px);
+            margin: 0 4px;
+            margin-bottom: 30px;
         }
     }
 }
