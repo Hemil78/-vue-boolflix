@@ -6,10 +6,18 @@
       <div class="poster">
         <span><small>{{details.overview}}</small></span>
       </div>
-      <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
+      <img v-if="details.poster_path" :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
+      <img v-else :src="require(`../assets/images/sorry.jpg`)">
 
       <div class="box-vote">
         <img :src= "require(`../assets/images/${details.original_language}.png`)">
+        <ul>
+          <li><i class="fas fa-star"></i></li>
+          <li><i class="fas fa-star"></i></li>
+          <li><i class="fas fa-star"></i></li>
+          <li><i class="fas fa-star"></i></li>
+          <li><i class="fas fa-star"></i></li>
+        </ul>
         <span>{{details.vote_average}}</span>
       </div>
 
@@ -95,6 +103,16 @@ export default {
       }
       span{
         color: #fff;
+      }
+      ul{
+        list-style: none;
+        
+        li{
+          display: inline-block;
+          color: yellow;
+          font-size: 12px;
+          margin: 0 1px;
+        }
       }
     }
   }
