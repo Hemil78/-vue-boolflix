@@ -13,8 +13,10 @@
     <div class="box-text">
       
       <div class="box-title">
-        <h4>{{details.title}}</h4>
-        <span><small>{{details.original_title}}</small></span>
+        <!-- operatore ternario -->
+        <h4>{{details.title ? details.title : details.name}}</h4>
+        <!-- operatore logico -->
+        <span><small>{{details.original_title || details.original_name}}</small></span>
       </div>
 
     </div>

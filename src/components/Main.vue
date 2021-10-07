@@ -6,6 +6,12 @@
           <Card :details="film"/> 
         </div>
     </div>
+    <h2>Serie TV</h2>
+    <div class="box-cards">
+        <div class="box-card" v-for="(episode, index) in serie" :key="index">
+          <Card :details="episode"/> 
+        </div>
+    </div>
       
   </main>
 </template>
@@ -20,7 +26,7 @@ import Card from './Card.vue';
 
 export default {
     name: "Main",
-    props: ['films'],
+    props: ['films', 'serie'],
     components: {
         Card
     }

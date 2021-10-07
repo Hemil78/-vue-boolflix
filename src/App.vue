@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @searching="searchFilm"/>
-    <Main :films="films"/>
+    <Main :films="films" :serie="serieTv"/>
   </div>
 </template>
     
@@ -19,21 +19,32 @@ export default {
   },
   data() {
     return {
-      films: []
+      films: [],
+      serieTv: [],
+      apiKey: 'f7e5315902a0e7bdffd73c714f75926d'
     }
   },
   methods: {
     searchFilm(query) {
+      /* creo una costante con i valori che vogliamo passare */
+      const params = {
+        api_key: this.apiKey,
+        query: query,
+        language: 'it-IT'
+      }
+      /* chiamata per i films */
       axios.get('https://api.themoviedb.org/3/search/movie', {
-        params: {
-          api_key: 'f7e5315902a0e7bdffd73c714f75926d',
-          query: query,
-          language: 'it-IT'
-          
-        }
+        params: params
       })
       .then((response) => {
         this.films = response.data.results;
+      });
+      /* chiamata per le serie tv */
+      axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: params
+      })
+      .then((response) => {
+        this.serieTv = response.data.results;
       });
     }
 
