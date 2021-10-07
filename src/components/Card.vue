@@ -1,7 +1,11 @@
 <template>
   
   <div class="container-card">
+    
     <div class="box-img">
+      <div class="poster">
+        <span><small>{{details.overview}}</small></span>
+      </div>
       <img :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
 
       <div class="box-vote">
@@ -20,9 +24,10 @@
       </div>
 
     </div>
-      
   </div>
+
 </template>
+      
 
 <script>
 export default {
@@ -49,11 +54,35 @@ export default {
     height: 320px;
     }
 
+    .poster{
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+      transition: .3s;
+      opacity: 0;
+      color: #fff;
+      padding: 20px;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:hover{
+        opacity: 1;
+      }
+    }
+
     .box-vote{
       position: absolute;
       left: 0;
       bottom: 0;
       right: 0;
+      z-index: 999;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -77,6 +106,7 @@ export default {
     color: #fff;
 
     .box-title{
+      padding: 0 10px;
 
       h4{
       margin-bottom: 0;
