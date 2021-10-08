@@ -56,7 +56,6 @@ main{
         display: flex;
         flex-wrap: wrap;
         
-
         .box-card{
             width: calc(100% / 6 - 8px);
             margin: 0 4px;

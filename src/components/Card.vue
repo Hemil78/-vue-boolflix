@@ -3,7 +3,7 @@
   <div class="container-card">
     
     <div class="box-img">
-      <div class="poster">
+      <div v-if="details.overview" class="poster">
         <span><small>{{details.overview}}</small></span>
       </div>
       <img v-if="details.poster_path" :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
@@ -18,7 +18,7 @@
           <li><i class="fas fa-star"></i></li>
           <li><i class="fas fa-star"></i></li>
         </ul>
-        <span>{{details.vote_average}}</span>
+        <span >{{details.vote_average}}</span>
       </div>
 
     </div>
@@ -39,8 +39,16 @@
 
 <script>
 export default {
-    name: "Card",
-    props: ['details']
+  name: "Card",
+  props: ['details'],
+  data() {
+    return {
+      
+    }
+  },
+  methods() {
+    
+  }
     
 }
 </script>
@@ -59,7 +67,7 @@ export default {
 
     img{
     width: 100%;
-    height: 320px;
+    height: 350px;
     }
 
     .poster{
