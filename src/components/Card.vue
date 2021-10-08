@@ -10,25 +10,32 @@
       <img v-else :src= "require(`../assets/images/sorry.jpg`)">
 
       <div class="box-vote">
-        <img :src= "require(`../assets/images/${details.original_language}.png`)">
-        <ul>
-          <li><i class="fas fa-star"></i></li>
-          <li><i class="fas fa-star"></i></li>
-          <li><i class="fas fa-star"></i></li>
-          <li><i class="fas fa-star"></i></li>
-          <li><i class="fas fa-star"></i></li>
-        </ul>
-        <span >{{details.vote_average}}</span>
-      </div>
 
+        <img :src= "require(`../assets/images/${details.original_language}.png`)">
+
+        <div class="box-stars">
+          <ul v-for= "(star, index) in stars" :key="index">
+            <li>
+              <i v-if="star <= Math.floor(details.vote_average / 2)" class="fas fa-star"></i>
+              <i v-if="star > Math.floor(details.vote_average / 2)" class="far fa-star"></i>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+            
     </div>
+        
+
     <div class="box-text">
-      
+  
       <div class="box-title">
         <!-- operatore ternario -->
         <h4>{{details.title ? details.title : details.name}}</h4>
         <!-- operatore logico -->
-        <span><small>{{details.original_title || details.original_name}}</small></span>
+        <span v-if="details.original_title != details.title || details.original_name != details.name">
+          <small>{{details.original_title || details.original_name}}</small>
+        </span>
       </div>
 
     </div>
@@ -43,14 +50,15 @@ export default {
   props: ['details'],
   data() {
     return {
-      
+      stars: 5
     }
   },
   methods() {
-    
-  }
-    
+
+    }
 }
+    
+
 </script>
 
 <style lang="scss" scoped>
@@ -81,7 +89,7 @@ export default {
       transition: .3s;
       opacity: 0;
       color: #fff;
-      padding: 20px;
+      padding: 35px 20px;
       overflow: auto;
 
       &::-webkit-scrollbar {
@@ -112,16 +120,23 @@ export default {
       span{
         color: #fff;
       }
-      ul{
-        list-style: none;
-        
-        li{
-          display: inline-block;
-          color: yellow;
-          font-size: 12px;
-          margin: 0 1px;
+      .box-stars{
+        display: flex;
+        align-items: center;
+
+          ul{
+          list-style: none;
+          
+          li{
+            display: inline-block;
+            color: rgb(255, 208, 0);
+            font-size: 14px;
+            margin: 0 2px;
+            
+          }
         }
       }
+      
     }
   }
   .box-text{
