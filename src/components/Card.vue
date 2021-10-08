@@ -7,7 +7,7 @@
         <span><small>{{details.overview}}</small></span>
       </div>
       <img v-if="details.poster_path" :src="`https://image.tmdb.org/t/p/w342${details.poster_path}`" alt="">
-      <img v-else :src="require(`../assets/images/sorry.jpg`)">
+      <img v-else :src= "require(`../assets/images/sorry.jpg`)">
 
       <div class="box-vote">
         <img :src= "require(`../assets/images/${details.original_language}.png`)">
